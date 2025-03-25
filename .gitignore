@@ -7,6 +7,9 @@ build/
 ### IntelliJ IDEA ###
 .idea
 
+### Other ###
+.out
+
 ### VS Code ###
 .vscode
 
