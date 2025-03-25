@@ -10,22 +10,24 @@ public class ArraysTest1 {
     Arrays1 arr1 = new Arrays1();
     List<Integer> arr = new ArrayList<>();
     public void executeCountPivotsTest() {
-        arr1 = new Arrays1();
+
         arr = Arrays.asList(-2, 6, 3, 4);
         System.out.println("TestCase1: " + arr);
         System.out.println("countPivots: " + arr1.countPivots(arr));
         System.out.println("--------------------");
 
-        arr1 = new Arrays1();
         arr = Arrays.asList(-7, 1, 5, 2, -4, 3, 0);
         System.out.println("TestCase2: " + arr);
         System.out.println("countPivots: " + arr1.countPivots(arr));
         System.out.println("--------------------");
 
-        arr1 = new Arrays1();
         arr = Arrays.asList(1, 2, 3, 4);
         System.out.println("TestCase3: " + arr);
         arr1.printPrefixProdArr(arr);
+        System.out.println("--------------------");
+
+        System.out.println("TestCase3:");
+        System.out.println("countOdds: " + arr1.countOdds(3, 7));
         System.out.println("--------------------");
     }
 }

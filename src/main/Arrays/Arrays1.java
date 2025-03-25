@@ -28,7 +28,7 @@ public class Arrays1 {
             } else if (left > 0) {
                 return prefixSum.get(right) - prefixSum.get(left - 1);
             } else {
-                System.out.print("Wroong input");
+                System.out.print("Wrong input");
                 return -1;
             }
         }
@@ -54,7 +54,7 @@ public class Arrays1 {
         return count;
     }
 
-    //TC: O(N+N); SC: O(N)
+    //TC: O(N+N); SC: O(1)
     public void printPrefixProdArr(List<Integer> arr) {
         List<Integer> prefix = prefixProd(arr);
         int suffix = 1, n = arr.size();
@@ -79,6 +79,17 @@ public class Arrays1 {
         }
         System.out.println("prefixProd: " + prefix);
         return prefix;
+    }
+
+    //TC:O(1); SC:O(1); Leetcode-1532
+    public int countOdds(int low, int high) {
+        System.out.println("low = " + low + " high = " + high);
+        int range = high - low + 1;
+        int res = range/2;
+        if((high%2 != 0) && (low%2 != 0)) {
+            return res + 1;
+        }
+        return res;
     }
 
 }
