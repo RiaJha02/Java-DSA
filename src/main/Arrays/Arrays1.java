@@ -81,7 +81,8 @@ public class Arrays1 {
         return prefix;
     }
 
-    //TC:O(1); SC:O(1); Leetcode-1532
+    //Leetcode-1532
+    // TC:O(1); SC:O(1);
     public int countOdds(int low, int high) {
         System.out.println("low = " + low + " high = " + high);
         int range = high - low + 1;
@@ -89,6 +90,36 @@ public class Arrays1 {
         if((high%2 != 0) && (low%2 != 0)) {
             return res + 1;
         }
+        return res;
+    }
+
+    //Leetcode-42
+    //TC:O(N+N+N); SC:O(N+N)
+    public int trappingRainWater(int[] height) {
+        int res = 0;
+        int n = height.length;
+
+        int[] prefixMax = new int[n];
+        prefixMax[0] = height[0];
+        for(int i = 1; i < n; i++) {
+            prefixMax[i] = Math.max(height[i], prefixMax[i-1]);
+        }
+         System.out.println("prefixMax:" + Arrays.toString(prefixMax));
+
+        int[] suffixMax = new int[n];
+        suffixMax[n-1] = height[n-1];
+        for(int i = n-2; i > 0; i--) {
+            suffixMax[i] = Math.max(height[i], suffixMax[i+1]);
+        }
+         System.out.println("suffixMax:" + Arrays.toString(suffixMax));
+
+        for(int i = 1; i < n-1; i++) {
+            int leftBound = Math.max(height[i-1], prefixMax[i]);
+            int rightBound = Math.max(height[i+1], suffixMax[i]);
+             System.out.println("left: " + leftBound + " ele: " + height[i] +" right: " + rightBound);
+            res += Math.abs(Math.min(leftBound, rightBound) - height[i]);
+        }
+
         return res;
     }
 

@@ -29,5 +29,10 @@ public class ArraysTest1 {
         System.out.println("TestCase3:");
         System.out.println("countOdds: " + arr1.countOdds(3, 7));
         System.out.println("--------------------");
+
+        int[] heights = {0,1,0,2,1,0,1,3,2,1,2,1};
+        System.out.println("TestCase4:" + Arrays.toString(heights));
+        System.out.println("countTrapWaterUnits: " + arr1.trappingRainWater(heights));
+        System.out.println("--------------------");
     }
 }
