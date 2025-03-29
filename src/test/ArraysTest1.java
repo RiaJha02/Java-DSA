@@ -1,4 +1,4 @@
-package src.test.Arrays;
+package src.test;
 
 import src.main.Arrays.Arrays1;
 

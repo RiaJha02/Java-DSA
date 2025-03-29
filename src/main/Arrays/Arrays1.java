@@ -98,29 +98,34 @@ public class Arrays1 {
     public int trappingRainWater(int[] height) {
         int res = 0;
         int n = height.length;
+        int[] prefixMax = getPrefixMax(height, n);
+        int[] suffixMax = getSuffixMax(height, n);
+        for(int i = 1; i < n-1; i++) {
+            System.out.println("left: " + prefixMax[i-1] + " ele: " + height[i] +" right: " + suffixMax[i+1]);
+            int amt = Math.min(prefixMax[i-1], suffixMax[i+1]) - height[i];
+            res += Math.max(amt, 0);
+        }
+        return res;
+    }
 
+    private static int[] getSuffixMax(int[] height, int n) {
+        int[] suffixMax = new int[n];
+        suffixMax[n -1] = height[n -1];
+        for(int i = n -2; i > 0; i--) {
+            suffixMax[i] = Math.max(height[i], suffixMax[i+1]);
+        }
+        System.out.println("suffixMax:" + Arrays.toString(suffixMax));
+        return suffixMax;
+    }
+
+    private static int[] getPrefixMax(int[] height, int n) {
         int[] prefixMax = new int[n];
         prefixMax[0] = height[0];
         for(int i = 1; i < n; i++) {
             prefixMax[i] = Math.max(height[i], prefixMax[i-1]);
         }
-         System.out.println("prefixMax:" + Arrays.toString(prefixMax));
-
-        int[] suffixMax = new int[n];
-        suffixMax[n-1] = height[n-1];
-        for(int i = n-2; i > 0; i--) {
-            suffixMax[i] = Math.max(height[i], suffixMax[i+1]);
-        }
-         System.out.println("suffixMax:" + Arrays.toString(suffixMax));
-
-        for(int i = 1; i < n-1; i++) {
-            int leftBound = Math.max(height[i-1], prefixMax[i]);
-            int rightBound = Math.max(height[i+1], suffixMax[i]);
-             System.out.println("left: " + leftBound + " ele: " + height[i] +" right: " + rightBound);
-            res += Math.abs(Math.min(leftBound, rightBound) - height[i]);
-        }
-
-        return res;
+        System.out.println("prefixMax:" + Arrays.toString(prefixMax));
+        return prefixMax;
     }
 
 }

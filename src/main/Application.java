@@ -1,4 +1,7 @@
-import src.test.Arrays.ArraysTest1;
+package src.main;
+
+import src.test.ArraysTest1;
+import src.test.LRUCacheTest;
 
 public class Application {
     public static void main(String[] args) {
