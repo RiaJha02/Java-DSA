@@ -35,4 +35,10 @@ public class ArraysTest1 {
         System.out.println("countTrapWaterUnits: " + arr1.trappingRainWater(heights));
         System.out.println("--------------------");
     }
+
+    public static void main(String[] args) {
+        //prefixSum Concept Questions
+        ArraysTest1 arrTest1 = new ArraysTest1();
+        arrTest1.executeCountPivotsTest();
+    }
 }
