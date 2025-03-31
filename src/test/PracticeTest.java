@@ -1,20 +1,26 @@
 package src.test;
 
-import src.main.Practice.GroupAnagrams;
-import src.main.Practice.LRUCache;
-import src.main.Practice.MeetingRooms;
-import src.main.Practice.NumberOfIslands;
-
-import java.io.InputStream;
+import src.main.Practice.*;
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.List;
 
 public class PracticeTest {
+
     public static void main(String[] args) {
 //        lruTest();
 //        numOfIslandsTest();
 //        meetingRoomsTest();
-        groupAnagramsTest();
+//        groupAnagramsTest();
+        findLongestValidSubstring();
+    }
+
+    private static void findLongestValidSubstring() {
+        LongestValidSubstring validSubstr = new LongestValidSubstring();
+        String word = "leetcode";
+        List<String> forbidden = Arrays.asList("le", "e", "de");
+        System.out.println("word: " + word);
+        System.out.println("forbidden: " + forbidden);
+        System.out.println("validSubStrlen: " + validSubstr.longestValidSubstring(word, forbidden));
     }
 
     private static void groupAnagramsTest() {

@@ -1,0 +1,127 @@
+Code Question 1:
+Developers at Amazon have their applications deployed on n servers. Initially, the ith server has an id serverlif and can handle serverli requests at a time.
+For maintenance purposes, some servers are replaced periodically. On a jth day, all the servers with id equal to replaceldi] are replaced with servers with id newldlj] that can serve newldlj] requests. The total number of requests served on a jth day is the sum of the ids of the servers that the application is running on. Given server, replaceld, and newld, find the total number of requests served by the servers each day.
+
+Note: The indices i and j are assumed to follow 1-based indexing.
+
+Example
+
+[20, 1].
+
+Suppose n = 2, server = [20, 10], replaceld = [10, 20], newld = [20, 1].
+
+Day Servers Replacement New Servers. Total Requests
+1 [20, 10] 10 → 20 [20, 20] 20 + 20 = 40
+2 [20, 20] 20 → 1 [1, 1] 1+1=2
+
+Hence the answer is [40, 2].
+
+Function Description
+Complete the function getTota/Requests in the editor below.
+getTotalRequests takes the following arguments:
+int server[n]: the initial server ids
+int replaceldin: the ids of the servers to replace int newld[n]: the new ids of the replaced servers
+
+Returns
+day
+int[n]: the total number of requests that can be served each
+
+Constraints
+• 1 ≤n≤ 105
+• 1 ≤ serverlil, replaceld[i], newldli] ≤ 104
+
+• Input Format For Custom Testing
+The first line contains an integer, n, the number of elements in server.
+Each of the next n lines contains an integer, server[i].
+The next line contains an integer, n, the number of elements in replaceld.
+Each of the next n lines contains an integer, replaceld[i].
+The next line contains an integer, n, the number of elements in newld.
+Each of the next n lines contains an integer, newld[i].
+
+Sample case 0:
+Sample input for custom testing
+
+STDIN FUNCTION
+
+2 -> server[] size n = 2
+3 -> server = [3, 3]
+3
+2 -> replaceId[] size n = 2
+3 -> replaceId = [3, 1]
+1
+2 -> newId[] size n = 2
+1 -> newId = [1, 5]
+5
+
+Sample output:
+2
+10
+
+Explanation:
+After the first day, the servers are [1, 1]. After the second day, the servers are [5, 5].
+
+Sample Case 1
+Sample Input For Custom Testing:
+
+STDIN FUNCTION
+ーーー ーーーーー
+3 → server[] size n = 3
+2 -> server = [2, 5, 21
+5
+2
+3 -> replaceId[] size n = 3
+2 -> replaceId = [2, 5, 3]
+5
+3
+3 -> newId[] size n = 3
+3 -> newId = [3, 1, 5]
+1
+5
+
+SAMPLE OUTPUT
+11
+7
+11
+
+EXPLANATION:
+After the first day, the servers are [3, 5, 3]. After the second day, the servers are [3, 1, 3]. After the third day, the servers are [5, 1, 5].
+
+SOLUTION:
+function getTotalRequests(server, replaceId, newId) {
+    const results = [];
+    const n = replaceId.length;
+
+    // Initialize the count map
+    const countMap = {};
+    for (let id of server) {
+        countMap[id] = (countMap[id] || 0) + 1;
+    }
+
+    for (let day = 0; day < n; day++) {
+        const toReplace = replaceId[day];
+        const newReplacement = newId[day];
+
+        if (toReplace in countMap) {
+            const count = countMap[toReplace];
+            delete countMap[toReplace];
+
+            countMap[newReplacement] = (countMap[newReplacement] || 0) + count;
+        }
+
+        // Calculate the total requests
+        let totalRequests = 0;
+        for (let id in countMap) {
+            totalRequests += id * countMap[id];
+        }
+
+        results.push(totalRequests);
+    }
+
+    return results;
+}
+
+// Example usage:
+const server = [20, 10];
+const replaceId = [10, 20];
+const newId = [20, 1];
+console.log(getTotalRequests(server, replaceId, newId)); // Output: [40, 2]
