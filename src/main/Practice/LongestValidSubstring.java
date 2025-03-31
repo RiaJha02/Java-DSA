@@ -7,6 +7,7 @@ import java.util.HashSet;
 
 public class LongestValidSubstring {
 
+    //TC:O(N*(N-K)); SC:O(L)
     public int longestValidSubstring(String word, List<String> forbidden) {
         if(word == null || word.length() == 0) {
             return 0;
@@ -37,6 +38,7 @@ public class LongestValidSubstring {
         return longestLen;
     }
 
+    //TC:O(N^4); SC:O(1)
     public int longestValidSubstringBruteForce(String word, List<String> forbidden) {
         int n = word.length();
         int longestlen = Integer.MIN_VALUE;
