@@ -15,6 +15,8 @@ public class ArraysTest2 {
         System.out.println("Input arr: " + arr);
         arrays2.printSubArr(arr);
         System.out.println("--------------------");
+        arrays2.getSubArrSum(arr);
+        System.out.println("--------------------");
     }
 
     public static void main(String[] args) {
