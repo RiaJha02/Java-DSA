@@ -1,0 +1,29 @@
+Question 1:
+Given A String Containing Integers, A Good String Is One Not Containing A Subsequence (Not Substring)
+With The Patterns "010" Or "101".
+You Can Perform Operations To Convert 0 To 1 Or 1 To 0.
+Return The Number Of Operations Required To Convert A Given String To A Good String
+
+Example: "111101110100"
+Answer: 2
+We Convert The 0s To 1s In Position 5 And 9
+"1111111111100"
+
+Example 2: "0272519360"
+Answer: 1
+We Convert The 1 To 0 In Index 5, We Get "0272509360"
+
+
+
+
+Question 2:
+Given An Array Costs And An Integer K, Your Task Is To Make K Contiguous Partitions To The Costs Array And
+Return The Maximum And Minimum Cost After Partition.
+
+Cost Of Partitioning For Index I To J Is Defined As Cost[I] + Cost[J]
+
+Example: Costs= [1,2,3,4] , k=2
+Answer : Max = 12
+[1+3,4+4] First Partition Is From Index 0 To 2 , second From 3 To 3
+Min = 8
+[1+1,2+4] First Partition From Index 0 to 0 , second From 1 To 3

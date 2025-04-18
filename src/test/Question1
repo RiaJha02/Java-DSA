@@ -1,5 +1,6 @@
-Q1.
-The listing on Amazon gives you an array, blocks, that consists of n different weighted blocks, in kg. There are no two blocks with the same weight. The element block[i] denotes the weight of the i-th block from the top of the stack. You consider weight lifting equipment to be good if the block at the top is the lightest and the block at the bottom is the heaviest.
+Q1. The listing on Amazon gives you an array, blocks, that consists of n different weighted blocks, in kg.
+There are no two blocks with the same weight. The element block[i] denotes the weight of the i-th block from the top of the stack.
+You consider weight lifting equipment to be good if the block at the top is the lightest and the block at the bottom is the heaviest.
 
 The good weight lifting equipment satisfies the following conditions
 
@@ -10,3 +11,25 @@ In one move, you can swap the order of adjacent blocks. Find out the minimum num
 
 
 https://leetcode.com/problems/length-of-the-longest-valid-substring/description/
+
+
+Q2. The team at an Amazon warehouse is given a task to optimize the packing of a set of boxes with different IDs Each box is labeled with an ID,
+and these boxes are currently arranged in a single row from left to right, where the id of the ith box is represented by the string sid consisting of
+digits from 0 to 9 inclusive. To make the packing more efficient, the team can perform the following operation any (possibly zero) number of times choose an
+index i and remove s_id[i]. then insert bix with id min(s_id[i] + 1,9) on any position
+
+Given a string s_id, find the lexicographically minimal string of boxes using these operations.
+
+Note: A string X is lexicographically smaller than a string Y of the same length if and only if in the first position where X and Y differ,
+the string X has a smaller digit than the corresponding digit in Y.
+
+Example
+
+Given, s_id="26547"
+
+26547 -> 26467 -> 24677
+
+ans: 24677
+explanation:
+delete 5 and insert 6 in 4th position
+delete 6 from 2 nd position and insert 7 in 4 th position

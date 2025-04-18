@@ -84,7 +84,9 @@ SAMPLE OUTPUT
 11
 
 EXPLANATION:
-After the first day, the servers are [3, 5, 3]. After the second day, the servers are [3, 1, 3]. After the third day, the servers are [5, 1, 5].
+After the first day, the servers are [3, 5, 3].
+After the second day, the servers are [3, 1, 3].
+After the third day, the servers are [5, 1, 5].
 
 SOLUTION:
 function getTotalRequests(server, replaceId, newId) {
